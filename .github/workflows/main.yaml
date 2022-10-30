@@ -97,7 +97,7 @@ jobs:
               "fields": [
                 {
                   "type": "mrkdwn",
-                  "text": "*Deployment:*\n<${{ teps.deployment.outputs.deployment}}|${{ teps.deployment.outputs.deployment }}>"
+                  "text": "*Deployment:*\n<${{ steps.deployment.outputs.deployment}}|${{ steps.deployment.outputs.deployment }}>"
                 }
               ]
             },
