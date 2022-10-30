@@ -102,7 +102,7 @@ jobs:
               "fields": [
                 {
                   "type": "mrkdwn",
-                  "text": "<${{github.event.workflow run.html_url}}|Open Application>"
+                  "text": "<${{github.event.workflow_run.html_url}}|Open Application>"
                 }
               ]
             } ]
