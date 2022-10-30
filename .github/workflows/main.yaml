@@ -1,4 +1,4 @@
-name: Workflow (on push)
+name: Workflow (on push branch v1.0)
 
 # trigger
 on:
