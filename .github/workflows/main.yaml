@@ -41,7 +41,7 @@ jobs:
         prerelease: false
     - name: Deploy to Railway
       id: deployment
-      uses: bervProject/railway-deploy@main
+      uses: bervProject/railway-deploy@0.0.7-alpha
       env:
         RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
         github-token: ${{ secrets.GH_TOKEN }}
