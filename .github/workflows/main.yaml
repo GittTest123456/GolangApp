@@ -46,68 +46,66 @@ jobs:
         github-token: ${{ secrets.GH_TOKEN }}
 
     - name: Send custom JSON data to Slack workflow
-  id: slack
-  uses: slackapi/slack-github-action@v1.23.0
-  with:
+      id: slack
+      uses: slackapi/slack-github-action@v1.23.0
+      with:
     # For posting a rich message using Block Kit
-    payload: |
-      {
-        "blocks": [
+        payload: |
           {
-            "type": "header",
-            "text": {
-              "type": "plain_text",
-              "text": "DipSA55 CI/CD Assignment Submission",
-              "emoji": true
-            }
-          },
-          {
-            "type": "section",
-            "fields": [
+            "blocks": [
               {
-                "type": "mrkdwn",
-                "text": "*Name:*\nYeo Min Xiu Sherlin"
-              },
-              {
-                "type": "mrkdwn",
-                "text": "*Matriculation:*\nA0116582E"
+                "type": "header",
+                "text": {
+                "type": "plain_text",
+                "text": "DipSA55 CI/CD Assignment Submission",
+                "emoji": true
               }
-            ]
-          },
-          {
-            "type": "section",
-            "fields": [
-              {
-                "type": "mrkdwn",
-                "text": "*Email:*\n<e1043503@u.nus.edu|e1043503@u.nus.edu>"
-              },
-              {
-                "type": "mrkdwn",
-                "text": "*Repository:*\n<${{ github.repositoryUrl }}|${{ github.repositoryUrl }}>"
-              }
-            ]
-          },
-          {
-            "type": "section",
-            "fields": [
-              {
-                "type": "mrkdwn",
-                "text": "*Deployment:*\n<${{ deployment_url }}|${{ deployment_url }}>"
-              }
-            ]
-          },
-          {
-            "type": "section",
-            "fields": [
-              {
-                "type": "mrkdwn",
-                "text": "<${{ deployment_url }}|Open Application>"
-              }
-            ]
+            },
+            {
+              "type": "section",
+              "fields": [
+                {
+                  "type": "mrkdwn",
+                  "text": "*Name:*\nYeo Min Xiu Sherlin"
+                },
+                {
+                  "type": "mrkdwn",
+                  "text": "*Matriculation:*\nA0116582E"
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "fields": [
+                {
+                  "type": "mrkdwn",
+                  "text": "*Email:*\n<e1043503@u.nus.edu|e1043503@u.nus.edu>"
+                },
+                {
+                  "type": "mrkdwn",
+                  "text": "*Repository:*\n<${{ github.repositoryUrl }}|${{ github.repositoryUrl }}>"
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "fields": [
+                {
+                  "type": "mrkdwn",
+                  "text": "*Deployment:*\n<${{ deployment_url }}|${{ deployment_url }}>"
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "fields": [
+                {
+                  "type": "mrkdwn",
+                  "text": "<${{ deployment_url }}|Open Application>"
+                }
+              ]
+            } ]
           }
-
-        ]
-      }
   env:
     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
