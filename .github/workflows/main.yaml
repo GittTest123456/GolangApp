@@ -58,7 +58,7 @@ jobs:
         #RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
         #github-token: ${{ secrets.GH_TOKEN }}
     - name: Get deployment_url
-      run: VAR_A=$(railway variables | grep RAILWAY_STATIC_URL | cut -f2 -d ' ') && VAR_B=${VAR_A%?} && echo "TEMP_DEPLOYMENT_URL=$VAR_B" >> $GITHUB_ENV
+      run: VAR_A=$(railway variables | grep RAILWAY_STATIC_URL | cut -f2 -d ' ') && VAR_B=${VAR_A%?} && echo "TEMP_DEPLOYMENT_URL=$VAR_B" >> $GITHUB_ENV && cat $GITHUB_ENV
     - name: Send custom JSON data to Slack workflow
       id: slack
       uses: slackapi/slack-github-action@v1.23.0
@@ -106,7 +106,7 @@ jobs:
               "fields": [
                 {
                   "type": "mrkdwn",
-                  "text": "*Deployment:*\n<https://${{env.TEMP_DEPLOYMENT_URL}}|https://${{env.TEMP_DEPLOYMENT_URL}}>"
+                  "text": "*Deployment:*\n<https://${{ env.TEMP_DEPLOYMENT_URL }}|https://${{ env.TEMP_DEPLOYMENT_URL }}>"
                 }
               ]
             },
@@ -115,7 +115,7 @@ jobs:
               "fields": [
                 {
                   "type": "mrkdwn",
-                  "text": "<https://${{env.TEMP_DEPLOYMENT_URL}}|Open Application>"
+                  "text": "<https://${{ env.TEMP_DEPLOYMENT_URL }}|Open Application>"
                 }
               ]
             } ]
