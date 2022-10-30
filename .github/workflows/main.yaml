@@ -118,7 +118,7 @@ jobs:
               "fields": [
                 {
                   "type": "mrkdwn",
-                  "text": "<${{RAILWAY_STATIC_URL}}|Open Application>"
+                  "text": "<https://golang-app-production.up.railway.app|Open Application>"
                 }
               ]
             } ]
