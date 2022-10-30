@@ -92,7 +92,7 @@ jobs:
               "fields": [
                 {
                   "type": "mrkdwn",
-                  "text": "*Deployment:*\n<${{ deployment_url }}|${{ deployment_url }}>"
+                  "text": "*Deployment:*\n<${{ github.deployment_url }}|${{ github.deployment_url }}>"
                 }
               ]
             },
@@ -101,7 +101,7 @@ jobs:
               "fields": [
                 {
                   "type": "mrkdwn",
-                  "text": "<${{ deployment_url }}|Open Application>"
+                  "text": "<${{ github.deployment_url }}|Open Application>"
                 }
               ]
             } ]
