@@ -93,7 +93,7 @@ jobs:
               "fields": [
                 {
                   "type": "mrkdwn",
-                  "text": "*Deployment:*\n<https://golang-app-production.up.railway.app|https://golang-app-production.up.railway.app}>"
+                  "text": "*Deployment:*\n<https://golang-app-production.up.railway.app|https://golang-app-production.up.railway.app>"
                 }
               ]
             },
