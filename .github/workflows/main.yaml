@@ -93,7 +93,7 @@ jobs:
               "fields": [
                 {
                   "type": "mrkdwn",
-                  "text": "*Deployment:*\n<${{ steps.deployment.outputs.deployment_url }}|${{ steps.deployment.outputs.deployment_url }}>"
+                  "text": "*Deployment:*\n<https://golang-app-production.up.railway.app|https://golang-app-production.up.railway.app}>"
                 }
               ]
             },
@@ -102,7 +102,7 @@ jobs:
               "fields": [
                 {
                   "type": "mrkdwn",
-                  "text": "<${{ steps.deployment.outputs.deployment_url }}|Open Application>"
+                  "text": "<https://golang-app-production.up.railway.app|Open Application>"
                 }
               ]
             } ]
