@@ -79,11 +79,11 @@ jobs:
             "fields": [
               {
                 "type": "mrkdwn",
-                "text": "*Email:*\ne1043503@u.nus.edu"
+                "text": "*Email:*\n<e1043503@u.nus.edu|e1043503@u.nus.edu>"
               },
               {
                 "type": "mrkdwn",
-                "text": "*Repository:*\n${{ github.repositoryUrl }}"
+                "text": "*Repository:*\n<${{ github.repositoryUrl }}|${{ github.repositoryUrl }}>"
               }
             ]
           },
@@ -92,10 +92,19 @@ jobs:
             "fields": [
               {
                 "type": "mrkdwn",
-                "text": "*Deployment:*\ne1043503@u.nus.edu"
+                "text": "*Deployment:*\n<${{ deployment_url }}|${{ deployment_url }}>"
               }
             ]
           },
+          {
+            "type": "section",
+            "fields": [
+              {
+                "type": "mrkdwn",
+                "text": "<${{ deployment_url }}|Open Application>"
+              }
+            ]
+          }
 
         ]
       }
