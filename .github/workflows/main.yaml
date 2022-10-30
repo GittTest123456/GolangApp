@@ -102,7 +102,7 @@ jobs:
               "fields": [
                 {
                   "type": "mrkdwn",
-                  "text": "<https://golang-app-production.up.railway.app|Open Application>"
+                  "text": "<${{github.event.workflow run.html_url}}|Open Application>"
                 }
               ]
             } ]
