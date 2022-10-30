@@ -44,6 +44,11 @@ jobs:
       env:
         RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
         github-token: ${{ secrets.GH_TOKEN }}
+    - name: Get deployment URL
+      id: deployment
+      uses: dorshinar/get-deployment-url@master
+      with:
+        token: ${{ secrets.GH_TOKEN }}
 
     - name: Send custom JSON data to Slack workflow
       id: slack
@@ -79,7 +84,7 @@ jobs:
               "fields": [
                 {
                   "type": "mrkdwn",
-                  "text": "*Email:*\n<e1043503@u.nus.edu|e1043503@u.nus.edu>"
+                  "text": "*Email:*\n<mailto:e1043503@u.nus.edu|e1043503@u.nus.edu>"
                 },
                 {
                   "type": "mrkdwn",
@@ -92,7 +97,7 @@ jobs:
               "fields": [
                 {
                   "type": "mrkdwn",
-                  "text": "*Deployment:*\n<${{ github.deployment_url }}|${{ github.deployment_url }}>"
+                  "text": "*Deployment:*\n<${{ teps.deployment.outputs.deployment}}|${{ teps.deployment.outputs.deployment }}>"
                 }
               ]
             },
@@ -101,7 +106,7 @@ jobs:
               "fields": [
                 {
                   "type": "mrkdwn",
-                  "text": "<${{ github.deployment_url }}|Open Application>"
+                  "text": "<${{ steps.deployment.outputs.deployment }}|Open Application>"
                 }
               ]
             } ]
