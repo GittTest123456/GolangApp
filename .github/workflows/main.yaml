@@ -1,4 +1,4 @@
-name: Deploy to Railway 
+name: Create Release and Deploy to Railway 
 
 # trigger
 on:
@@ -9,7 +9,7 @@ on:
 # Jobs in the workflow
 jobs:
   # job name, 
-  deploy:
+  create release and deploy:
     # OS that this job will be running on
     runs-on: ubuntu-latest
 
@@ -27,9 +27,19 @@ jobs:
     - name: Checkout the current repo 
       uses: actions/checkout@v3
       with:
-        ref: ${{ github.ref_name }}
+        ref: ${{ github.ref_name }} 
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env: 
+      github-token: ${{ secrets.GH_TOKEN }}
+      with:
+      tag_name: ${{ github.ref_name }}
+      release_name: ${{ github.ref_name }}
+      draft: false
+      pre-release: false
     - name: Deploy to Railway
-      run: railway up
+      uses: bervProject/railway-deploy@main
       env:
         RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
         github-token: ${{ secrets.GH_TOKEN }}
