@@ -44,3 +44,61 @@ jobs:
       env:
         RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
         github-token: ${{ secrets.GH_TOKEN }}
+
+    - name: Send custom JSON data to Slack workflow
+  id: slack
+  uses: slackapi/slack-github-action@v1.23.0
+  with:
+    # For posting a rich message using Block Kit
+    payload: |
+      {
+        "blocks": [
+          {
+            "type": "header",
+            "text": {
+              "type": "plain_text",
+              "text": "DipSA55 CI/CD Assignment Submission",
+              "emoji": true
+            }
+          },
+          {
+            "type": "section",
+            "fields": [
+              {
+                "type": "mrkdwn",
+                "text": "*Name:*\nYeo Min Xiu Sherlin"
+              },
+              {
+                "type": "mrkdwn",
+                "text": "*Matriculation:*\nA0116582E"
+              }
+            ]
+          },
+          {
+            "type": "section",
+            "fields": [
+              {
+                "type": "mrkdwn",
+                "text": "*Email:*\ne1043503@u.nus.edu"
+              },
+              {
+                "type": "mrkdwn",
+                "text": "*Repository:*\n${{ github.repositoryUrl }}"
+              }
+            ]
+          },
+          {
+            "type": "section",
+            "fields": [
+              {
+                "type": "mrkdwn",
+                "text": "*Deployment:*\ne1043503@u.nus.edu"
+              }
+            ]
+          },
+
+        ]
+      }
+  env:
+    SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
