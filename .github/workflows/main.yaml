@@ -9,7 +9,7 @@ on:
 # Jobs in the workflow
 jobs:
   # job name, 
-  create release and deploy:
+  create_release_and_deploy:
     # OS that this job will be running on
     runs-on: ubuntu-latest
 
